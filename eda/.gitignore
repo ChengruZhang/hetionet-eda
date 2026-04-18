@@ -1,0 +1,21 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Project-specific: raw data (download separately, see README)
+../hetionet-main/
+../hetionet-main.zip
+
+# Claude Code internals
+../.claude/

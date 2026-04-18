@@ -1,0 +1,22 @@
+[workspace]
+channels = ["conda-forge"]
+name = "eda"
+platforms = ["osx-arm64", "linux-64", "win-64"]
+version = "0.1.0"
+
+[tasks]
+notebook = "jupyter notebook --no-browser --port=8889 --notebook-dir=."
+
+[dependencies]
+python = ">=3.11"
+uv = "*"
+
+[pypi-dependencies]
+jupyter = "*"
+pandas = "*"
+matplotlib = "*"
+seaborn = "*"
+networkx = "*"
+scipy = "*"
+scikit-learn = "*"
+tqdm = "*"

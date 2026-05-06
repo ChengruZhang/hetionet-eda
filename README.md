@@ -22,14 +22,6 @@ downstream modelling decisions.
 
 Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one.
 
-### Tutorials
-
-Bilingual (Chinese/English) worked examples explaining the code and underlying concepts:
-
-| Tutorial | Covers |
-|---|---|
-| [`tutorials/tutorial.ipynb`](eda/tutorials/tutorial.ipynb) | Python, pandas, NetworkX, NumPy/SciPy (notebooks 01–03) |
-| [`tutorials/tutorial_04.ipynb`](eda/tutorials/tutorial_04.ipynb) | `scipy.sparse`, graph heuristics, spectral graph theory, scikit-learn evaluation (notebook 04) |
 
 ---
 

@@ -18,8 +18,18 @@ downstream modelling decisions.
 | [`01_overview.ipynb`](eda/01_overview.ipynb) | Dataset validation, node/edge type distributions, class-imbalance analysis |
 | [`02_structure.ipynb`](eda/02_structure.ipynb) | Degree distribution (power-law fit), connectivity, shortest paths, centrality |
 | [`03_compound_disease.ipynb`](eda/03_compound_disease.ipynb) | CtD/CpD sparsity, metapath enumeration, DWPC feature baseline, OWA analysis, negative-sampling design |
+| [`04_link_prediction.ipynb`](eda/04_link_prediction.ipynb) | Graph heuristics (Common Neighbors, Jaccard), spectral node embeddings, logistic regression baseline, AUROC/AUPRC evaluation |
 
 Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one.
+
+### Tutorials
+
+Bilingual (Chinese/English) worked examples explaining the code and underlying concepts:
+
+| Tutorial | Covers |
+|---|---|
+| [`tutorials/tutorial.ipynb`](eda/tutorials/tutorial.ipynb) | Python, pandas, NetworkX, NumPy/SciPy (notebooks 01–03) |
+| [`tutorials/tutorial_04.ipynb`](eda/tutorials/tutorial_04.ipynb) | `scipy.sparse`, graph heuristics, spectral graph theory, scikit-learn evaluation (notebook 04) |
 
 ---
 
@@ -33,6 +43,8 @@ Run them in order — each notebook depends on outputs described (but not re-com
 | Giant component (core subgraph) | 88% of nodes, mean path length 2.80 |
 | CbG–GaD metapath CtD recall | ~73% with 36× coverage lift |
 | UBC betweenness | 0.34 (next: 0.026) — hub correction mandatory |
+| Common Neighbors baseline (no leakage) | AUROC 0.82 / AUPRC 0.030 (8× random) |
+| Spectral embedding (L_sym, 4-dim) | AUROC 0.68 / AUPRC 0.005 — limited by heterogeneous graph structure |
 
 ---
 
@@ -90,11 +102,15 @@ pixi run notebook
 ```
 .
 ├── eda/
-│   ├── 01_overview.ipynb
+│   ├── 01_overview.ipynb          # EDA notebooks (run in order)
 │   ├── 02_structure.ipynb
 │   ├── 03_compound_disease.ipynb
-│   ├── utils.py              # shared data-loading and graph utilities
-│   ├── pixi.toml             # environment spec
+│   ├── 04_link_prediction.ipynb
+│   ├── tutorials/
+│   │   ├── tutorial.ipynb         # concepts behind notebooks 01–03
+│   │   └── tutorial_04.ipynb      # concepts behind notebook 04
+│   ├── utils.py                   # shared data-loading and graph utilities
+│   ├── pixi.toml                  # environment spec
 │   └── pixi.lock
 └── README.md
 ```

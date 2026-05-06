@@ -98,9 +98,6 @@ pixi run notebook
 │   ├── 02_structure.ipynb
 │   ├── 03_compound_disease.ipynb
 │   ├── 04_link_prediction.ipynb
-│   ├── tutorials/
-│   │   ├── tutorial.ipynb         # concepts behind notebooks 01–03
-│   │   └── tutorial_04.ipynb      # concepts behind notebook 04
 │   ├── utils.py                   # shared data-loading and graph utilities
 │   ├── pixi.toml                  # environment spec
 │   └── pixi.lock

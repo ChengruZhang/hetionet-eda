@@ -22,3 +22,12 @@ __pycache__/
 
 # Local tutorials (not for version control)
 tutorials/
+
+# Generated artifacts (split + predictions; regenerate by re-running nb4)
+artifacts/predictions/
+artifacts/splits/pairs.parquet
+artifacts/splits/lr_split.npz
+# Keep split_meta.json + per-method *_meta.json checked in as reproducibility receipts
+
+# Node2vec walk + embedding cache (regenerate from nb5)
+cache/

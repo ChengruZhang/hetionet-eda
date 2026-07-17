@@ -1,0 +1,267 @@
+{
+  "produced_by": "06_evaluation_deepdive.ipynb \u00a76",
+  "top_k_by_structure": {
+    "spectral \u00b7 cosine | K=10": {
+      "avg path_len": 2.4,
+      "avg log10(deg_c\u00d7deg_d)": 3.65,
+      "avg shared_neighbours": 1.4,
+      "% y=1": 0.0
+    },
+    "spectral \u00b7 concat+LR | K=10": {
+      "avg path_len": 2.5,
+      "avg log10(deg_c\u00d7deg_d)": 3.91,
+      "avg shared_neighbours": 2.4,
+      "% y=1": 10.0
+    },
+    "node2vec \u00b7 cosine | K=10": {
+      "avg path_len": 1.7,
+      "avg log10(deg_c\u00d7deg_d)": 2.94,
+      "avg shared_neighbours": 6.5,
+      "% y=1": 0.0
+    },
+    "node2vec \u00b7 hadamard+LR | K=10": {
+      "avg path_len": 2.3,
+      "avg log10(deg_c\u00d7deg_d)": 2.91,
+      "avg shared_neighbours": 1.3,
+      "% y=1": 0.0
+    },
+    "node2vec \u00b7 concat+LR | K=10": {
+      "avg path_len": 2.4,
+      "avg log10(deg_c\u00d7deg_d)": 3.83,
+      "avg shared_neighbours": 1.4,
+      "% y=1": 0.0
+    },
+    "spectral \u00b7 cosine | K=50": {
+      "avg path_len": 2.52,
+      "avg log10(deg_c\u00d7deg_d)": 3.38,
+      "avg shared_neighbours": 2.36,
+      "% y=1": 0.0
+    },
+    "spectral \u00b7 concat+LR | K=50": {
+      "avg path_len": 2.58,
+      "avg log10(deg_c\u00d7deg_d)": 3.77,
+      "avg shared_neighbours": 1.64,
+      "% y=1": 4.0
+    },
+    "node2vec \u00b7 cosine | K=50": {
+      "avg path_len": 1.82,
+      "avg log10(deg_c\u00d7deg_d)": 3.05,
+      "avg shared_neighbours": 5.36,
+      "% y=1": 0.0
+    },
+    "node2vec \u00b7 hadamard+LR | K=50": {
+      "avg path_len": 2.26,
+      "avg log10(deg_c\u00d7deg_d)": 2.8,
+      "avg shared_neighbours": 1.66,
+      "% y=1": 2.0
+    },
+    "node2vec \u00b7 concat+LR | K=50": {
+      "avg path_len": 2.32,
+      "avg log10(deg_c\u00d7deg_d)": 4.01,
+      "avg shared_neighbours": 5.0,
+      "% y=1": 0.0
+    },
+    "spectral \u00b7 cosine | K=100": {
+      "avg path_len": 2.53,
+      "avg log10(deg_c\u00d7deg_d)": 3.26,
+      "avg shared_neighbours": 1.91,
+      "% y=1": 0.0
+    },
+    "spectral \u00b7 concat+LR | K=100": {
+      "avg path_len": 2.54,
+      "avg log10(deg_c\u00d7deg_d)": 3.76,
+      "avg shared_neighbours": 1.44,
+      "% y=1": 2.0
+    },
+    "node2vec \u00b7 cosine | K=100": {
+      "avg path_len": 1.96,
+      "avg log10(deg_c\u00d7deg_d)": 2.97,
+      "avg shared_neighbours": 4.25,
+      "% y=1": 2.0
+    },
+    "node2vec \u00b7 hadamard+LR | K=100": {
+      "avg path_len": 2.32,
+      "avg log10(deg_c\u00d7deg_d)": 2.82,
+      "avg shared_neighbours": 1.6,
+      "% y=1": 4.0
+    },
+    "node2vec \u00b7 concat+LR | K=100": {
+      "avg path_len": 2.34,
+      "avg log10(deg_c\u00d7deg_d)": 4.05,
+      "avg shared_neighbours": 5.12,
+      "% y=1": 2.0
+    }
+  },
+  "rank_diff_by_outlier": {
+    "False": {
+      "n": 37961,
+      "n_pos": 146,
+      "mean_abs_rank_diff": 11994.494,
+      "std_rank_diff": 14889.446,
+      "mean_score_spectral": 0.473,
+      "mean_score_n2v": 0.222
+    },
+    "True": {
+      "n": 3302,
+      "n_pos": 5,
+      "mean_abs_rank_diff": 13622.074,
+      "std_rank_diff": 16453.349,
+      "mean_score_spectral": 0.454,
+      "mean_score_n2v": 0.278
+    }
+  },
+  "positive_rank_by_outlier": {
+    "False": {
+      "n_pos": 146,
+      "median_rank_spectral": 9126.0,
+      "median_rank_n2v": 4166.0,
+      "median_rank_diff": 4492.0
+    },
+    "True": {
+      "n_pos": 5,
+      "median_rank_spectral": 12691.0,
+      "median_rank_n2v": 787.0,
+      "median_rank_diff": 11904.0
+    }
+  },
+  "ensemble_results": {
+    "pure spectral \u00b7 concat+LR": {
+      "AUROC": 0.6811,
+      "AUPRC": 0.0097,
+      "P@10": 0.1,
+      "P@50": 0.04,
+      "P@100": 0.02,
+      "P@500": 0.01,
+      "P@1000": 0.006
+    },
+    "pure node2vec \u00b7 concat+LR": {
+      "AUROC": 0.9209,
+      "AUPRC": 0.031,
+      "P@10": 0.0,
+      "P@50": 0.0,
+      "P@100": 0.02,
+      "P@500": 0.03,
+      "P@1000": 0.038
+    },
+    "ensemble \u00b7 rank-average": {
+      "AUROC": 0.8599,
+      "AUPRC": 0.0287,
+      "P@10": 0.1,
+      "P@50": 0.06,
+      "P@100": 0.03,
+      "P@500": 0.018,
+      "P@1000": 0.032
+    },
+    "ensemble \u00b7 hard-gate (path_len \u2264 2 \u2192 spectral)": {
+      "AUROC": 0.7157,
+      "AUPRC": 0.0096,
+      "P@10": 0.1,
+      "P@50": 0.02,
+      "P@100": 0.01,
+      "P@500": 0.008,
+      "P@1000": 0.006
+    },
+    "ensemble \u00b7 linear blend (\u03b1=0.00)": {
+      "AUROC": 0.9209,
+      "AUPRC": 0.031,
+      "P@10": 0.0,
+      "P@50": 0.0,
+      "P@100": 0.02,
+      "P@500": 0.03,
+      "P@1000": 0.038
+    },
+    "ensemble \u00b7 linear blend (\u03b1=0.5)": {
+      "AUROC": 0.8599,
+      "AUPRC": 0.0287,
+      "P@10": 0.1,
+      "P@50": 0.06,
+      "P@100": 0.03,
+      "P@500": 0.018,
+      "P@1000": 0.032
+    }
+  },
+  "linear_blend_curve": [
+    {
+      "alpha": 0.0,
+      "auroc": 0.9209,
+      "auprc": 0.031
+    },
+    {
+      "alpha": 0.1,
+      "auroc": 0.92,
+      "auprc": 0.0322
+    },
+    {
+      "alpha": 0.2,
+      "auroc": 0.9128,
+      "auprc": 0.0316
+    },
+    {
+      "alpha": 0.3,
+      "auroc": 0.9011,
+      "auprc": 0.03
+    },
+    {
+      "alpha": 0.4,
+      "auroc": 0.8839,
+      "auprc": 0.0311
+    },
+    {
+      "alpha": 0.5,
+      "auroc": 0.8599,
+      "auprc": 0.0287
+    },
+    {
+      "alpha": 0.6,
+      "auroc": 0.8289,
+      "auprc": 0.0263
+    },
+    {
+      "alpha": 0.7,
+      "auroc": 0.794,
+      "auprc": 0.0235
+    },
+    {
+      "alpha": 0.8,
+      "auroc": 0.7577,
+      "auprc": 0.0211
+    },
+    {
+      "alpha": 0.9,
+      "auroc": 0.7198,
+      "auprc": 0.0135
+    },
+    {
+      "alpha": 1.0,
+      "auroc": 0.6811,
+      "auprc": 0.0097
+    }
+  ],
+  "best_alpha": 0.0,
+  "outlier_endpoints": {
+    "compound": [
+      "DB00050",
+      "DB00133",
+      "DB00452",
+      "DB00479",
+      "DB00644",
+      "DB00666",
+      "DB00684",
+      "DB00994",
+      "DB04911",
+      "DB06402"
+    ],
+    "disease": [
+      "DOID:0060073",
+      "DOID:1024",
+      "DOID:10811",
+      "DOID:12995",
+      "DOID:13189",
+      "DOID:14227",
+      "DOID:216",
+      "DOID:4481",
+      "DOID:8986",
+      "DOID:90"
+    ]
+  }
+}

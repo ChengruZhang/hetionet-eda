@@ -1,0 +1,76 @@
+{
+  "produced_by": "06_evaluation_deepdive.ipynb",
+  "n_test_pairs": 41263,
+  "n_test_positives": 151,
+  "walk_graph": {
+    "kinds_kept": [
+      "Compound",
+      "Disease",
+      "Gene"
+    ],
+    "hub_K_removed": 20,
+    "n_nodes": 19683,
+    "n_edges": 525174,
+    "test_ctd_edges_removed": 151
+  },
+  "columns": {
+    "score_spectral": "nb4 spectral+LR score",
+    "score_n2v": "nb5 node2vec+Hadamard+LR score",
+    "rank_spectral": "rank on the test set by spectral score (1 = highest)",
+    "rank_n2v": "rank on the test set by node2vec score",
+    "rank_diff": "rank_spectral - rank_n2v  (positive \u21d2 n2v ranks higher)",
+    "deg_c": "walk-graph degree of the compound (0 if node absent)",
+    "deg_d": "walk-graph degree of the disease (0 if node absent)",
+    "path_len": "shortest-path length between compound and disease in the walk graph (\u221e if disconnected)",
+    "n_shared_neighbours": "|N(c) \u2229 N(d)| in the walk graph (mostly shared Gene neighbours)"
+  },
+  "top_k": {
+    "node2vec \u00b7 concat+LR": {
+      "10": 0.0,
+      "50": 0.0,
+      "100": 0.02,
+      "500": 0.03,
+      "1000": 0.038,
+      "5000": 0.0262
+    },
+    "node2vec \u00b7 cosine": {
+      "10": 0.0,
+      "50": 0.0,
+      "100": 0.02,
+      "500": 0.028,
+      "1000": 0.029,
+      "5000": 0.0156
+    },
+    "node2vec \u00b7 hadamard+LR": {
+      "10": 0.0,
+      "50": 0.02,
+      "100": 0.04,
+      "500": 0.036,
+      "1000": 0.031,
+      "5000": 0.0172
+    },
+    "spectral \u00b7 concat+LR": {
+      "10": 0.1,
+      "50": 0.04,
+      "100": 0.02,
+      "500": 0.01,
+      "1000": 0.006,
+      "5000": 0.0104
+    },
+    "spectral \u00b7 cosine": {
+      "10": 0.0,
+      "50": 0.0,
+      "100": 0.0,
+      "500": 0.002,
+      "1000": 0.006,
+      "5000": 0.0066
+    }
+  },
+  "cohen_d_pos_vs_neg": {
+    "node2vec \u00b7 concat+LR": 2.3591,
+    "node2vec \u00b7 hadamard+LR": 1.5534,
+    "node2vec \u00b7 cosine": 1.105,
+    "spectral \u00b7 concat+LR": 0.6455,
+    "spectral \u00b7 cosine": 0.4768
+  }
+}

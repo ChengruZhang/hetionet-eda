@@ -1,0 +1,175 @@
+{
+  "method": "rgcn",
+  "library": "torch 2.11.0 + torch_geometric",
+  "config": {
+    "layers": 2,
+    "hidden_dim": 64,
+    "num_bases": 8,
+    "dropout": 0.2,
+    "lr": 0.01,
+    "epochs": 200,
+    "neg_ratio": 1,
+    "hub_K": 20,
+    "seed": 42,
+    "device": "mps",
+    "train_seconds": 411.1,
+    "num_relations": 10,
+    "relation_names": [
+      "associates",
+      "binds",
+      "covaries",
+      "downregulates",
+      "interacts",
+      "palliates",
+      "regulates",
+      "resembles",
+      "treats",
+      "upregulates"
+    ]
+  },
+  "walk_graph": {
+    "kinds_kept": [
+      "Compound",
+      "Disease",
+      "Gene"
+    ],
+    "n_nodes": 19683,
+    "n_edges_directed": 1050348,
+    "test_ctd_edges_removed": 151,
+    "coverage": 1.0
+  },
+  "results": {
+    "AUROC": 0.9172,
+    "AUROC_95%": [
+      0.8965,
+      0.938
+    ],
+    "AUPRC": 0.1839,
+    "AUPRC_95%": [
+      0.1328,
+      0.2593
+    ],
+    "top_k": {
+      "10": 0.4,
+      "50": 0.44,
+      "100": 0.36,
+      "500": 0.134,
+      "1000": 0.08
+    },
+    "lift_vs_random": {
+      "10": 109.3,
+      "50": 120.2,
+      "100": 98.4,
+      "500": 36.6,
+      "1000": 21.9
+    }
+  },
+  "training_curve": {
+    "loss_last10": [
+      0.0228,
+      0.0577,
+      0.0191,
+      0.0104,
+      0.0212,
+      0.0181,
+      0.0196,
+      0.0103,
+      0.0419,
+      0.0215
+    ],
+    "auroc_history": [
+      [
+        1,
+        0.8688
+      ],
+      [
+        10,
+        0.8929
+      ],
+      [
+        20,
+        0.9076
+      ],
+      [
+        30,
+        0.8927
+      ],
+      [
+        40,
+        0.8877
+      ],
+      [
+        50,
+        0.8965
+      ],
+      [
+        60,
+        0.9182
+      ],
+      [
+        70,
+        0.9092
+      ],
+      [
+        80,
+        0.8996
+      ],
+      [
+        90,
+        0.9088
+      ],
+      [
+        100,
+        0.9222
+      ],
+      [
+        110,
+        0.9218
+      ],
+      [
+        120,
+        0.9216
+      ],
+      [
+        130,
+        0.9152
+      ],
+      [
+        140,
+        0.929
+      ],
+      [
+        150,
+        0.9176
+      ],
+      [
+        160,
+        0.9277
+      ],
+      [
+        170,
+        0.9167
+      ],
+      [
+        180,
+        0.9093
+      ],
+      [
+        190,
+        0.919
+      ],
+      [
+        200,
+        0.9172
+      ]
+    ]
+  },
+  "compared_with": {
+    "gcn": 0.9218,
+    "node2vec + Hadamard + LR": 0.859437923733455,
+    "node2vec + Concat   + LR": 0.9209252644045214,
+    "node2vec + Cosine": 0.7806761758220799,
+    "spectral + Concat   + LR (nb4)": 0.6811373937001683,
+    "spectral + Cosine        (nb4)": 0.6215452152027928
+  }
+}

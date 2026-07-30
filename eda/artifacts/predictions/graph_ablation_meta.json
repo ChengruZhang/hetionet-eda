@@ -149,6 +149,57 @@
       "AUPRC": 0.0031,
       "AUPRC_95%": "[0.0025, 0.0037]",
       "pair_coverage": 0.894
+    },
+    {
+      "variant": "V3 (PyG, full Hetionet)",
+      "method": "hadamard+LR",
+      "AUROC": 0.898,
+      "AUROC_95%": "[0.877, 0.918]",
+      "AUPRC": 0.0551,
+      "AUPRC_95%": "[0.0355, 0.0904]",
+      "pair_coverage": 1.0
+    },
+    {
+      "variant": "V3 (PyG, full Hetionet)",
+      "method": "concat+LR",
+      "AUROC": 0.911,
+      "AUROC_95%": "[0.891, 0.930]",
+      "AUPRC": 0.0514,
+      "AUPRC_95%": "[0.0346, 0.0826]",
+      "pair_coverage": 1.0
+    },
+    {
+      "variant": "V3 (PyG, full Hetionet)",
+      "method": "cosine",
+      "AUROC": 0.8697,
+      "AUROC_95%": "[0.848, 0.890]",
+      "AUPRC": 0.0222,
+      "AUPRC_95%": "[0.0170, 0.0297]",
+      "pair_coverage": 1.0
     }
-  ]
+  ],
+  "v3_supplement": {
+    "produced_by": "07b_v3_pyg.ipynb",
+    "library": "torch 2.11.0 + torch_geometric (MPS Node2Vec)",
+    "config": {
+      "dimensions": 64,
+      "p": 1,
+      "q": 1,
+      "walk_length": 20,
+      "num_walks": 5,
+      "window": 10,
+      "hub_K": 20,
+      "seed": 42,
+      "device": "mps",
+      "train_seconds": 115.5,
+      "cache_key": "V3_pyg_d64_p1_q1_wl20_nw5_w10_seed42"
+    },
+    "walk_graph": {
+      "kinds_kept": "all 11",
+      "n_nodes": 45114,
+      "n_edges": 2069117,
+      "test_ctd_edges_removed": 151
+    },
+    "final_loss": 1.0595
+  }
 }

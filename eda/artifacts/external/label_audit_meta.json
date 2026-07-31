@@ -13,118 +13,118 @@
       "decile": 10,
       "n_sampled": 1000,
       "pool": 4112,
-      "pct_any": 28.3,
-      "pct_ph2": 23.8,
-      "pct_10": 6.8,
-      "median_score": -0.8305099010467529
+      "pct_any": 27.3,
+      "pct_ph2": 23.0,
+      "pct_10": 7.1,
+      "median_score": -0.824293851852417
     },
     {
       "decile": 9,
       "n_sampled": 400,
       "pool": 4111,
-      "pct_any": 12.8,
-      "pct_ph2": 10.2,
-      "pct_10": 1.8,
-      "median_score": -4.969253063201904
+      "pct_any": 13.5,
+      "pct_ph2": 9.5,
+      "pct_10": 2.2,
+      "median_score": -4.957820892333984
     },
     {
       "decile": 8,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 11.0,
-      "pct_ph2": 7.5,
-      "pct_10": 1.5,
-      "median_score": -7.164920806884766
+      "pct_any": 13.0,
+      "pct_ph2": 10.5,
+      "pct_10": 3.0,
+      "median_score": -7.150367736816406
     },
     {
       "decile": 7,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 10.0,
-      "pct_ph2": 6.5,
-      "pct_10": 2.0,
-      "median_score": -8.917797088623047
+      "pct_any": 11.5,
+      "pct_ph2": 7.0,
+      "pct_10": 0.5,
+      "median_score": -8.902792930603027
     },
     {
       "decile": 6,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 9.5,
-      "pct_ph2": 8.5,
-      "pct_10": 1.0,
-      "median_score": -10.694952011108398
+      "pct_any": 10.0,
+      "pct_ph2": 7.5,
+      "pct_10": 0.5,
+      "median_score": -10.677393913269043
     },
     {
       "decile": 5,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 10.0,
-      "pct_ph2": 8.5,
-      "pct_10": 1.5,
-      "median_score": -12.591464042663574
+      "pct_any": 7.5,
+      "pct_ph2": 5.5,
+      "pct_10": 0.5,
+      "median_score": -12.576743125915527
     },
     {
       "decile": 4,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 11.5,
-      "pct_ph2": 8.0,
+      "pct_any": 8.5,
+      "pct_ph2": 7.0,
       "pct_10": 1.5,
-      "median_score": -14.893892288208008
+      "median_score": -14.859391212463379
     },
     {
       "decile": 3,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 9.0,
-      "pct_ph2": 6.0,
-      "pct_10": 2.5,
-      "median_score": -17.8587646484375
+      "pct_any": 9.5,
+      "pct_ph2": 7.0,
+      "pct_10": 1.0,
+      "median_score": -17.83940315246582
     },
     {
       "decile": 2,
       "n_sampled": 200,
       "pool": 4111,
-      "pct_any": 9.5,
-      "pct_ph2": 7.0,
-      "pct_10": 2.0,
-      "median_score": -22.215656280517578
+      "pct_any": 8.0,
+      "pct_ph2": 6.5,
+      "pct_10": 1.5,
+      "median_score": -22.2684383392334
     },
     {
       "decile": 1,
       "n_sampled": 200,
       "pool": 4112,
-      "pct_any": 11.0,
-      "pct_ph2": 7.0,
-      "pct_10": 0.5,
-      "median_score": -31.576282501220703
+      "pct_any": 9.5,
+      "pct_ph2": 7.5,
+      "pct_10": 1.0,
+      "median_score": -31.654571533203125
     }
   ],
   "population_estimates_pct": {
-    "any_trial": 12.3,
-    "phase2plus": 9.3,
-    "ten_plus": 2.1
+    "any_trial": 11.8,
+    "phase2plus": 9.1,
+    "ten_plus": 1.9
   },
   "two_tasks": {
     "task_a_hetionet_labels": {
       "positives": 151,
       "base_rate": 0.00366,
-      "auprc": 0.1787,
-      "lift_over_random": 48.8
+      "auprc": 0.1794,
+      "lift_over_random": 49.0
     },
     "task_b_evidence_labels": {
       "positives_recorded": 151,
-      "positives_imputed_mean": 3824,
-      "base_rate": 0.09634,
-      "auprc": 0.1115,
+      "positives_imputed_mean": 3738,
+      "base_rate": 0.09425,
+      "auprc": 0.1101,
       "auprc_ci": [
-        0.1074,
-        0.1164
+        0.1057,
+        0.115
       ],
-      "lift_over_random_monte_carlo": 1.16,
-      "auprc_direct_ipw": 0.1975,
-      "base_rate_direct": 0.09305,
-      "lift_over_random_direct": 2.12,
+      "lift_over_random_monte_carlo": 1.17,
+      "auprc_direct_ipw": 0.1895,
+      "base_rate_direct": 0.091,
+      "lift_over_random_direct": 2.08,
       "preferred_estimator": "direct IPW (no within-decile randomness assumption)"
     },
     "note": "different label sets are different tasks; compare lifts, not raw AUPRC"
@@ -133,89 +133,89 @@
     "n_trials": 0,
     "drug_marginal_min": 50,
     "cond_marginal_min": 100,
-    "share_of_screened": 0.378,
-    "estimated_share_of_population": 0.357
+    "share_of_screened": 0.353,
+    "estimated_share_of_population": 0.327
   },
   "top_hard_negative_candidates": [
     {
-      "compound": "Telbivudine",
-      "disease": "breast cancer",
-      "gcn_score": 8.680336952209473,
+      "compound": "Galantamine",
+      "disease": "malaria",
+      "gcn_score": 8.324304580688477,
       "decile": 10,
-      "drug_trials": 96,
-      "disease_trials": 16656
+      "drug_trials": 118,
+      "disease_trials": 1471
+    },
+    {
+      "compound": "Alendronate",
+      "disease": "hematologic cancer",
+      "gcn_score": 8.300177574157715,
+      "decile": 10,
+      "drug_trials": 214,
+      "disease_trials": 14191
     },
     {
       "compound": "Vincristine",
       "disease": "psoriasis",
-      "gcn_score": 8.000208854675293,
+      "gcn_score": 8.073139190673828,
       "decile": 10,
       "drug_trials": 1405,
       "disease_trials": 2528
     },
     {
-      "compound": "Sulfasalazine",
-      "disease": "melanoma",
-      "gcn_score": 7.40541410446167,
-      "decile": 10,
-      "drug_trials": 121,
-      "disease_trials": 3737
-    },
-    {
       "compound": "Doxorubicin",
-      "disease": "Barrett's esophagus",
-      "gcn_score": 7.170842170715332,
+      "disease": "systemic lupus erythematosus",
+      "gcn_score": 7.180452346801758,
       "decile": 10,
       "drug_trials": 3015,
-      "disease_trials": 328
+      "disease_trials": 1463
+    },
+    {
+      "compound": "Loratadine",
+      "disease": "coronary artery disease",
+      "gcn_score": 7.096501350402832,
+      "decile": 10,
+      "drug_trials": 100,
+      "disease_trials": 11993
+    },
+    {
+      "compound": "Betamethasone",
+      "disease": "peripheral nervous system neoplasm",
+      "gcn_score": 6.9398908615112305,
+      "decile": 10,
+      "drug_trials": 510,
+      "disease_trials": 1190
     },
     {
       "compound": "Mitoxantrone",
-      "disease": "ulcerative colitis",
-      "gcn_score": 7.070724010467529,
+      "disease": "melanoma",
+      "gcn_score": 6.842463970184326,
       "decile": 10,
       "drug_trials": 420,
+      "disease_trials": 3737
+    },
+    {
+      "compound": "Dactinomycin",
+      "disease": "colon cancer",
+      "gcn_score": 6.78067684173584,
+      "decile": 10,
+      "drug_trials": 73,
+      "disease_trials": 8208
+    },
+    {
+      "compound": "Entecavir",
+      "disease": "ulcerative colitis",
+      "gcn_score": 6.537656784057617,
+      "decile": 10,
+      "drug_trials": 328,
       "disease_trials": 1866
-    },
-    {
-      "compound": "Dapsone",
-      "disease": "prostate cancer",
-      "gcn_score": 6.797303676605225,
-      "decile": 10,
-      "drug_trials": 81,
-      "disease_trials": 7519
-    },
-    {
-      "compound": "Sulfasalazine",
-      "disease": "hepatitis B",
-      "gcn_score": 6.7259297370910645,
-      "decile": 10,
-      "drug_trials": 121,
-      "disease_trials": 2046
-    },
-    {
-      "compound": "Telbivudine",
-      "disease": "ovarian cancer",
-      "gcn_score": 6.701413154602051,
-      "decile": 10,
-      "drug_trials": 96,
-      "disease_trials": 5233
     },
     {
       "compound": "Doxycycline",
       "disease": "asthma",
-      "gcn_score": 6.6536455154418945,
+      "gcn_score": 6.5311055183410645,
       "decile": 10,
       "drug_trials": 474,
       "disease_trials": 5248
-    },
-    {
-      "compound": "Vemurafenib",
-      "disease": "stomach cancer",
-      "gcn_score": 6.449008464813232,
-      "decile": 10,
-      "drug_trials": 169,
-      "disease_trials": 4271
     }
   ]
 }

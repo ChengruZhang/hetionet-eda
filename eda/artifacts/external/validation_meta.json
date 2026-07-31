@@ -14,9 +14,9 @@
     {
       "control": "A \u00b7 graph degree",
       "axis": "graph degree \u00b7 compound",
-      "pred median": 98.5,
-      "ctrl median": 64.0,
-      "p": 0.0408,
+      "pred median": 133.0,
+      "ctrl median": 73.0,
+      "p": 0.0161,
       "comparable": "NO \u2014 skewed"
     },
     {
@@ -24,14 +24,14 @@
       "axis": "graph degree \u00b7 disease",
       "pred median": 630.0,
       "ctrl median": 630.0,
-      "p": 0.7664,
+      "p": 0.7147,
       "comparable": "yes"
     },
     {
       "control": "A \u00b7 graph degree",
       "axis": "trial marginal \u00b7 compound",
-      "pred median": 598.0,
-      "ctrl median": 115.5,
+      "pred median": 554.0,
+      "ctrl median": 113.5,
       "p": 0.0,
       "comparable": "NO \u2014 skewed"
     },
@@ -39,15 +39,15 @@
       "control": "A \u00b7 graph degree",
       "axis": "trial marginal \u00b7 disease",
       "pred median": 7519.0,
-      "ctrl median": 4041.5,
-      "p": 0.003,
+      "ctrl median": 3745.0,
+      "p": 0.0001,
       "comparable": "NO \u2014 skewed"
     },
     {
       "control": "B \u00b7 trial popularity",
       "axis": "graph degree \u00b7 compound",
-      "pred median": 98.5,
-      "ctrl median": 19.0,
+      "pred median": 133.0,
+      "ctrl median": 20.5,
       "p": 0.0,
       "comparable": "NO \u2014 skewed"
     },
@@ -55,24 +55,24 @@
       "control": "B \u00b7 trial popularity",
       "axis": "graph degree \u00b7 disease",
       "pred median": 630.0,
-      "ctrl median": 301.0,
+      "ctrl median": 268.0,
       "p": 0.0,
       "comparable": "NO \u2014 skewed"
     },
     {
       "control": "B \u00b7 trial popularity",
       "axis": "trial marginal \u00b7 compound",
-      "pred median": 598.0,
-      "ctrl median": 595.5,
-      "p": 0.1987,
+      "pred median": 554.0,
+      "ctrl median": 534.5,
+      "p": 0.0869,
       "comparable": "yes"
     },
     {
       "control": "B \u00b7 trial popularity",
       "axis": "trial marginal \u00b7 disease",
       "pred median": 7519.0,
-      "ctrl median": 7519.0,
-      "p": 0.7184,
+      "ctrl median": 7863.5,
+      "p": 0.447,
       "comparable": "yes"
     }
   ],
@@ -80,121 +80,121 @@
     {
       "group": "GCN top-100 novel",
       "n": 100,
-      "\u22651 trial %": 60.0,
-      "post-2017 %": 47.0,
-      "phase 2+ %": 56.0,
+      "\u22651 trial %": 59.0,
+      "post-2017 %": 46.0,
+      "phase 2+ %": 55.0,
       "median trials (hits)": 7.0
     },
     {
       "group": "control A \u00b7 graph degree",
       "n": 100,
-      "\u22651 trial %": 31.0,
+      "\u22651 trial %": 26.0,
       "post-2017 %": 20.0,
-      "phase 2+ %": 24.0,
-      "median trials (hits)": 4.0
+      "phase 2+ %": 21.0,
+      "median trials (hits)": 2.5
     },
     {
       "group": "control B \u00b7 trial popularity",
       "n": 100,
-      "\u22651 trial %": 50.0,
-      "post-2017 %": 32.0,
+      "\u22651 trial %": 49.0,
+      "post-2017 %": 34.0,
       "phase 2+ %": 38.0,
-      "median trials (hits)": 3.0
+      "median trials (hits)": 5.0
     }
   ],
   "enrichment_one_axis_n100": [
     {
       "control": "A \u00b7 graph degree",
       "metric": "\u22651 trial",
-      "pred_hits": 60,
-      "ctrl_hits": 31,
-      "enrichment": 1.94,
-      "fisher_p": 3.140224738139657e-05
+      "pred_hits": 59,
+      "ctrl_hits": 26,
+      "enrichment": 2.27,
+      "fisher_p": 1.9117155712732046e-06
     },
     {
       "control": "A \u00b7 graph degree",
       "metric": "post-2017 trial",
-      "pred_hits": 47,
+      "pred_hits": 46,
       "ctrl_hits": 20,
-      "enrichment": 2.35,
-      "fisher_p": 4.226034564343414e-05
+      "enrichment": 2.3,
+      "fisher_p": 7.459980953344991e-05
     },
     {
       "control": "B \u00b7 trial popularity",
       "metric": "\u22651 trial",
-      "pred_hits": 60,
-      "ctrl_hits": 50,
+      "pred_hits": 59,
+      "ctrl_hits": 49,
       "enrichment": 1.2,
-      "fisher_p": 0.10035380006799037
+      "fisher_p": 0.10076403786489828
     },
     {
       "control": "B \u00b7 trial popularity",
       "metric": "post-2017 trial",
-      "pred_hits": 47,
-      "ctrl_hits": 32,
-      "enrichment": 1.47,
-      "fisher_p": 0.021272455372368177
+      "pred_hits": 46,
+      "ctrl_hits": 34,
+      "enrichment": 1.35,
+      "fisher_p": 0.05604529008048633
     }
   ],
   "definitive_4axis_n300": [
     {
       "metric": "\u22651 trial",
-      "pred_pct": 50.3,
-      "ctrl_pct": 42.7,
-      "enrichment": 1.18,
-      "ci_lo": 0.99,
-      "ci_hi": 1.41,
-      "fisher_p": 0.03582940268212536,
+      "pred_pct": 49.3,
+      "ctrl_pct": 42.3,
+      "enrichment": 1.17,
+      "ci_lo": 0.98,
+      "ci_hi": 1.4,
+      "fisher_p": 0.05059776058495687,
       "ci_excludes_1": "no"
     },
     {
       "metric": "post-2017 trial",
-      "pred_pct": 36.7,
-      "ctrl_pct": 33.7,
-      "enrichment": 1.09,
-      "ci_lo": 0.87,
-      "ci_hi": 1.36,
-      "fisher_p": 0.24701348169711823,
+      "pred_pct": 36.0,
+      "ctrl_pct": 34.0,
+      "enrichment": 1.06,
+      "ci_lo": 0.85,
+      "ci_hi": 1.33,
+      "fisher_p": 0.33436499684240845,
       "ci_excludes_1": "no"
     },
     {
       "metric": "phase 2+",
-      "pred_pct": 46.7,
+      "pred_pct": 46.0,
       "ctrl_pct": 35.0,
-      "enrichment": 1.33,
-      "ci_lo": 1.1,
-      "ci_hi": 1.63,
-      "fisher_p": 0.002348710777988862,
+      "enrichment": 1.31,
+      "ci_lo": 1.08,
+      "ci_hi": 1.62,
+      "fisher_p": 0.0038624733691516432,
       "ci_excludes_1": "yes"
     }
   ],
   "balance_4axis": [
     {
       "axis": "graph degree \u00b7 compound",
-      "pred median": 66.0,
+      "pred median": 67.5,
       "ctrl median": 60.0,
-      "p": 0.987,
+      "p": 0.966,
       "balanced": "yes"
     },
     {
       "axis": "graph degree \u00b7 disease",
       "pred median": 576.0,
       "ctrl median": 568.0,
-      "p": 0.658,
+      "p": 0.631,
       "balanced": "yes"
     },
     {
       "axis": "trial marginal \u00b7 compound",
-      "pred median": 420.0,
-      "ctrl median": 410.0,
-      "p": 0.628,
+      "pred median": 422.5,
+      "ctrl median": 419.5,
+      "p": 0.647,
       "balanced": "yes"
     },
     {
       "axis": "trial marginal \u00b7 disease",
-      "pred median": 4426.0,
-      "ctrl median": 4348.5,
-      "p": 0.934,
+      "pred median": 4271.0,
+      "ctrl median": 4271.0,
+      "p": 0.939,
       "balanced": "yes"
     }
   ],
@@ -202,7 +202,7 @@
     {
       "compound_name": "Gemcitabine",
       "disease_name": "ovarian cancer",
-      "score_gcn": 7.160279750823975,
+      "score_gcn": 7.347766399383545,
       "n_trials": 168,
       "n_trials_post": 66,
       "max_phase": "PHASE4"
@@ -210,7 +210,7 @@
     {
       "compound_name": "Irinotecan",
       "disease_name": "sarcoma",
-      "score_gcn": 7.159769058227539,
+      "score_gcn": 7.333122730255127,
       "n_trials": 88,
       "n_trials_post": 49,
       "max_phase": "PHASE3"
@@ -218,7 +218,7 @@
     {
       "compound_name": "Dexamethasone",
       "disease_name": "breast cancer",
-      "score_gcn": 10.435745239257812,
+      "score_gcn": 10.627703666687012,
       "n_trials": 87,
       "n_trials_post": 46,
       "max_phase": "PHASE4"
@@ -226,7 +226,7 @@
     {
       "compound_name": "Epinephrine",
       "disease_name": "hypertension",
-      "score_gcn": 7.3481316566467285,
+      "score_gcn": 7.413386344909668,
       "n_trials": 67,
       "n_trials_post": 44,
       "max_phase": "PHASE4"
@@ -234,7 +234,7 @@
     {
       "compound_name": "Carboplatin",
       "disease_name": "prostate cancer",
-      "score_gcn": 8.286425590515137,
+      "score_gcn": 8.356084823608398,
       "n_trials": 65,
       "n_trials_post": 40,
       "max_phase": "PHASE3"
@@ -242,7 +242,7 @@
     {
       "compound_name": "Doxorubicin",
       "disease_name": "germ cell cancer",
-      "score_gcn": 10.116748809814453,
+      "score_gcn": 10.254632949829102,
       "n_trials": 118,
       "n_trials_post": 21,
       "max_phase": "PHASE3"
@@ -250,7 +250,7 @@
     {
       "compound_name": "Irinotecan",
       "disease_name": "skin cancer",
-      "score_gcn": 8.822782516479492,
+      "score_gcn": 8.97467041015625,
       "n_trials": 61,
       "n_trials_post": 21,
       "max_phase": "PHASE4"
@@ -258,7 +258,7 @@
     {
       "compound_name": "Triamcinolone",
       "disease_name": "breast cancer",
-      "score_gcn": 8.030759811401367,
+      "score_gcn": 8.150097846984863,
       "n_trials": 54,
       "n_trials_post": 18,
       "max_phase": "PHASE4"
@@ -266,7 +266,7 @@
     {
       "compound_name": "Hydrocortisone",
       "disease_name": "type 2 diabetes mellitus",
-      "score_gcn": 7.506714820861816,
+      "score_gcn": 7.37544059753418,
       "n_trials": 20,
       "n_trials_post": 16,
       "max_phase": "PHASE4"
@@ -274,7 +274,7 @@
     {
       "compound_name": "Capecitabine",
       "disease_name": "germ cell cancer",
-      "score_gcn": 7.034553527832031,
+      "score_gcn": 7.125605583190918,
       "n_trials": 39,
       "n_trials_post": 15,
       "max_phase": "PHASE3"
@@ -282,7 +282,7 @@
     {
       "compound_name": "Dexamethasone",
       "disease_name": "ovarian cancer",
-      "score_gcn": 6.900725841522217,
+      "score_gcn": 7.076348781585693,
       "n_trials": 34,
       "n_trials_post": 11,
       "max_phase": "PHASE4"
@@ -290,7 +290,7 @@
     {
       "compound_name": "Methotrexate",
       "disease_name": "head and neck cancer",
-      "score_gcn": 6.865822792053223,
+      "score_gcn": 6.975499629974365,
       "n_trials": 25,
       "n_trials_post": 11,
       "max_phase": "PHASE3"
@@ -298,7 +298,7 @@
     {
       "compound_name": "Doxorubicin",
       "disease_name": "colon cancer",
-      "score_gcn": 8.500519752502441,
+      "score_gcn": 8.614448547363281,
       "n_trials": 19,
       "n_trials_post": 11,
       "max_phase": "PHASE3"
@@ -306,7 +306,7 @@
     {
       "compound_name": "Methylprednisolone",
       "disease_name": "coronary artery disease",
-      "score_gcn": 8.81869888305664,
+      "score_gcn": 8.7095365524292,
       "n_trials": 13,
       "n_trials_post": 10,
       "max_phase": "PHASE4"
@@ -314,7 +314,7 @@
     {
       "compound_name": "Doxorubicin",
       "disease_name": "head and neck cancer",
-      "score_gcn": 7.283052444458008,
+      "score_gcn": 7.34600830078125,
       "n_trials": 42,
       "n_trials_post": 9,
       "max_phase": "PHASE3"

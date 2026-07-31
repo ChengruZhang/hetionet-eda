@@ -1,0 +1,76 @@
+{
+  "produced_by": "09_sideeffect_rgcn.ipynb",
+  "question": "does edge-type awareness reduce treats/causes confusion when the graph carries a causes relation",
+  "graphs": {
+    "CGD": {
+      "n_nodes": 19683,
+      "n_edges": 525174,
+      "relations": 10,
+      "test_ctd_dropped": 151
+    },
+    "CGD+SE": {
+      "n_nodes": 25403,
+      "n_edges": 664123,
+      "relations": 11,
+      "test_ctd_dropped": 151
+    }
+  },
+  "config": {
+    "hidden_dim": 64,
+    "num_bases": 8,
+    "dropout": 0.2,
+    "lr": 0.01,
+    "epochs": 200,
+    "hub_K": 20,
+    "seed": 42,
+    "device": "mps"
+  },
+  "direction_metric": {
+    "definition": "compound has a Compound-causes-SideEffect edge whose side-effect name matches the disease name exactly",
+    "diseases_covered": 53,
+    "diseases_total": 137,
+    "baseline_gcn_cgd_top300_from_nb11": 0.06
+  },
+  "results": [
+    {
+      "model": "gcn @ CGD",
+      "AUROC": 0.9218,
+      "AUPRC": 0.1781,
+      "causes@50": 0.1,
+      "causes@100": 0.06,
+      "causes@300": 0.06,
+      "causes@100_checkable_only": 0.09,
+      "seconds": 307.0
+    },
+    {
+      "model": "rgcn @ CGD",
+      "AUROC": 0.9179,
+      "AUPRC": 0.1545,
+      "causes@50": 0.04,
+      "causes@100": 0.06,
+      "causes@300": 0.04,
+      "causes@100_checkable_only": 0.09,
+      "seconds": 395.0
+    },
+    {
+      "model": "gcn @ CGD+SE",
+      "AUROC": 0.8727,
+      "AUPRC": 0.0941,
+      "causes@50": 0.22,
+      "causes@100": 0.15,
+      "causes@300": 0.1,
+      "causes@100_checkable_only": 0.17,
+      "seconds": 440.0
+    },
+    {
+      "model": "rgcn @ CGD+SE",
+      "AUROC": 0.8639,
+      "AUPRC": 0.1584,
+      "causes@50": 0.04,
+      "causes@100": 0.05,
+      "causes@300": 0.0233,
+      "causes@100_checkable_only": 0.06,
+      "seconds": 637.0
+    }
+  ]
+}

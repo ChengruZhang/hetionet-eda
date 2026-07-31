@@ -1,0 +1,160 @@
+{
+  "produced_by": "11_external_validation.ipynb (Part III)",
+  "source": "Europe PMC REST, TITLE_ABS co-mention",
+  "cutoff_year": 2017,
+  "n_per_arm": 300,
+  "matching": "same 4-axis matched arms as Part I",
+  "results": [
+    {
+      "metric": "studied at all",
+      "pred_pct": 69.7,
+      "ctrl_pct": 61.0,
+      "enrichment": 1.14,
+      "fisher_p": 0.01593277483732452
+    },
+    {
+      "metric": "studied since 2017",
+      "pred_pct": 59.3,
+      "ctrl_pct": 53.3,
+      "enrichment": 1.11,
+      "fisher_p": 0.08082985248692129
+    },
+    {
+      "metric": "well studied (>=10 papers)",
+      "pred_pct": 41.7,
+      "ctrl_pct": 31.3,
+      "enrichment": 1.33,
+      "fisher_p": 0.00544008588115667
+    },
+    {
+      "metric": "NEW since 2017 (0 before, >0 after)",
+      "pred_pct": 6.3,
+      "ctrl_pct": 10.3,
+      "enrichment": 0.61,
+      "fisher_p": 0.9730457841968411
+    }
+  ],
+  "direction_check": {
+    "definition": "compound has a Compound-causes-SideEffect edge whose name matches the disease exactly",
+    "diseases_covered": 53,
+    "diseases_total": 137,
+    "pred_pct": 6.0,
+    "ctrl_pct": 3.7
+  },
+  "novel_post_examples": [
+    {
+      "compound_name": "Acarbose",
+      "disease_name": "asthma",
+      "lit_post": 4,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Capecitabine",
+      "disease_name": "brain cancer",
+      "lit_post": 4,
+      "n_trials": 46
+    },
+    {
+      "compound_name": "Etoposide",
+      "disease_name": "psoriatic arthritis",
+      "lit_post": 3,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Entecavir",
+      "disease_name": "multiple sclerosis",
+      "lit_post": 2,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Vemurafenib",
+      "disease_name": "Alzheimer's disease",
+      "lit_post": 2,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Raloxifene",
+      "disease_name": "malaria",
+      "lit_post": 2,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Cladribine",
+      "disease_name": "Crohn's disease",
+      "lit_post": 2,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Dimenhydrinate",
+      "disease_name": "coronary artery disease",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Vandetanib",
+      "disease_name": "kidney cancer",
+      "lit_post": 1,
+      "n_trials": 4
+    },
+    {
+      "compound_name": "Loratadine",
+      "disease_name": "coronary artery disease",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Vemurafenib",
+      "disease_name": "stomach cancer",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Dacarbazine",
+      "disease_name": "germ cell cancer",
+      "lit_post": 1,
+      "n_trials": 751
+    },
+    {
+      "compound_name": "Carboplatin",
+      "disease_name": "Alzheimer's disease",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Carboplatin",
+      "disease_name": "Barrett's esophagus",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Entecavir",
+      "disease_name": "stomach cancer",
+      "lit_post": 1,
+      "n_trials": 1
+    },
+    {
+      "compound_name": "Carboplatin",
+      "disease_name": "lymphatic system cancer",
+      "lit_post": 1,
+      "n_trials": 152
+    },
+    {
+      "compound_name": "Gefitinib",
+      "disease_name": "psoriasis",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Teniposide",
+      "disease_name": "Alzheimer's disease",
+      "lit_post": 1,
+      "n_trials": 0
+    },
+    {
+      "compound_name": "Dactinomycin",
+      "disease_name": "liver cancer",
+      "lit_post": 1,
+      "n_trials": 0
+    }
+  ]
+}

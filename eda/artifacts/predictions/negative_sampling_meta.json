@@ -1,0 +1,109 @@
+{
+  "produced_by": "12_negative_sampling.ipynb",
+  "question": "can better negatives replace the architectural fix from nb09",
+  "pools": {
+    "hard": {
+      "source": "Hetionet Compound-causes-SideEffect, name-matched to Disease",
+      "train": 1899,
+      "test_heldout": 432
+    },
+    "screened": {
+      "source": "ClinicalTrials.gov, uniform sample of train negatives",
+      "zero_trial": 7913,
+      "defensible": 2539
+    }
+  },
+  "config": {
+    "hidden_dim": 64,
+    "dropout": 0.2,
+    "lr": 0.01,
+    "epochs": 200,
+    "hub_K": 20,
+    "seed": 42,
+    "device": "mps"
+  },
+  "reference_nb09": {
+    "gcn_cgd": {
+      "causes@300": 0.06,
+      "AUPRC": 0.178
+    },
+    "rgcn_cgd_se": {
+      "causes@300": 0.023,
+      "AUPRC": 0.158
+    }
+  },
+  "results": [
+    {
+      "arm": "random",
+      "AUROC": 0.9224,
+      "AUPRC": 0.1793,
+      "causes@50": 0.1,
+      "causes@100": 0.06,
+      "causes@300": 0.06,
+      "seconds": 254.0
+    },
+    {
+      "arm": "random-pool",
+      "AUROC": 0.8727,
+      "AUPRC": 0.0863,
+      "causes@50": 0.04,
+      "causes@100": 0.05,
+      "causes@300": 0.0767,
+      "seconds": 284.0
+    },
+    {
+      "arm": "hard-25",
+      "AUROC": 0.9234,
+      "AUPRC": 0.1535,
+      "causes@50": 0.0,
+      "causes@100": 0.0,
+      "causes@300": 0.0033,
+      "seconds": 267.0
+    },
+    {
+      "arm": "hard-50",
+      "AUROC": 0.8784,
+      "AUPRC": 0.0972,
+      "causes@50": 0.0,
+      "causes@100": 0.0,
+      "causes@300": 0.01,
+      "seconds": 280.0
+    },
+    {
+      "arm": "hard-100",
+      "AUROC": 0.7171,
+      "AUPRC": 0.0114,
+      "causes@50": 0.0,
+      "causes@100": 0.0,
+      "causes@300": 0.0,
+      "seconds": 284.0
+    },
+    {
+      "arm": "screened-25",
+      "AUROC": 0.9187,
+      "AUPRC": 0.1274,
+      "causes@50": 0.1,
+      "causes@100": 0.06,
+      "causes@300": 0.0533,
+      "seconds": 269.0
+    },
+    {
+      "arm": "screened-100",
+      "AUROC": 0.8793,
+      "AUPRC": 0.0942,
+      "causes@50": 0.18,
+      "causes@100": 0.12,
+      "causes@300": 0.0633,
+      "seconds": 269.0
+    },
+    {
+      "arm": "screened+hard",
+      "AUROC": 0.9229,
+      "AUPRC": 0.1107,
+      "causes@50": 0.04,
+      "causes@100": 0.03,
+      "causes@300": 0.0467,
+      "seconds": 277.0
+    }
+  ]
+}

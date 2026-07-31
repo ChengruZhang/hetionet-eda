@@ -23,10 +23,14 @@ downstream modelling decisions.
 | [`06_evaluation_deepdive.ipynb`](eda/06_evaluation_deepdive.ipynb) | Precision@K, score distributions, outliers in 64-D vs 2-D, where spectral and Node2Vec disagree, rank-average ensemble |
 | [`07_graph_ablation.ipynb`](eda/07_graph_ablation.ipynb) | Four walk-graph variants — CtD-only, C∪G∪D, full Hetionet, and CtD plus weighted metapath shortcuts |
 | [`08_gnn.ipynb`](eda/08_gnn.ipynb) | GCN and R-GCN link prediction, end-to-end supervised, sharing one training loop so the edge-type ablation is clean |
+| [`09_sideeffect_rgcn.ipynb`](eda/09_sideeffect_rgcn.ipynb) | Does edge-type awareness stop the model confusing "treats" with "causes"? Adds Side Effect nodes and retrains both architectures |
 | [`10_ensemble_v2.ipynb`](eda/10_ensemble_v2.ipynb) | Five methods combined: rank-average, best pair, weight-simplex search |
-| [`11_external_validation.ipynb`](eda/11_external_validation.ipynb) | Checks top predictions against ClinicalTrials.gov, then audits how contaminated the `y = 0` labels are |
+| [`11_external_validation.ipynb`](eda/11_external_validation.ipynb) | ClinicalTrials.gov and Europe PMC validation, label-contamination audit, and the direction defect that motivates 09 and 12 |
+| [`12_negative_sampling.ipynb`](eda/12_negative_sampling.ipynb) | Can better negatives replace the architectural fix? Hard negatives from Hetionet's own side-effect edges, plus registry-screened ones |
 
-Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one. Numbering skips 09 and 12: those notebooks were merged into 08 and 11 respectively, and renumbering the rest would have broken every cross-reference in the prose.
+Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one.
+
+Reading order note: 11 comes before 09 and 12 logically. It is the notebook that finds the problems those two attack, and it only needs 08's scores to run. The numbers stay as they are because renumbering breaks every cross-reference in the prose.
 
 
 ---
@@ -50,7 +54,9 @@ Run them in order — each notebook depends on outputs described (but not re-com
 | Gene as bridge, not as node (V4) | 99.8% of the C∪G∪D result using 8% of the nodes |
 | Five-method ensemble | AUROC 0.958; spectral gets weight 0.0 once the GNNs are present |
 | External validation (matched, N=300) | Phase 2+ enrichment 1.33× [1.10, 1.63]; post-2017 enrichment not significant |
+| Literature validation (Europe PMC) | 69.7% studied vs 60.7% control; but "new since 2017" runs *below* control (0.63×) |
 | **Contamination in `y = 0`** | **~12% overall, 28% in the top-scoring decile** — AUPRC is biased, not merely noisy |
+| **The model confuses "treats" with "causes"** | 6.0% of top predictions are drugs known to *cause* the condition; edge-type awareness cuts it to 2.3% |
 
 ---
 
@@ -116,8 +122,10 @@ pixi run notebook
 │   ├── 06_evaluation_deepdive.ipynb
 │   ├── 07_graph_ablation.ipynb
 │   ├── 08_gnn.ipynb                   # GCN + R-GCN
+│   ├── 09_sideeffect_rgcn.ipynb       # treats vs causes, architectural route
 │   ├── 10_ensemble_v2.ipynb
-│   ├── 11_external_validation.ipynb   # ClinicalTrials.gov + label audit
+│   ├── 11_external_validation.ipynb   # registry + literature + label audit
+│   ├── 12_negative_sampling.ipynb     # treats vs causes, data route
 │   ├── artifacts/
 │   │   ├── splits/                    # locked pair universe and train/test indices
 │   │   ├── predictions/               # per-method scores and *_meta.json receipts

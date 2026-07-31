@@ -11,6 +11,10 @@
     "hub_K": 20,
     "seed": 42
   },
+  "trainers": {
+    "V1/V2/V4": "eliorc/node2vec on gensim (CPU)",
+    "V3": "torch_geometric.nn.Node2Vec on mps - gensim does not finish V3 within an hour"
+  },
   "variants": [
     {
       "variant": "V1 CtD-only",
@@ -19,14 +23,14 @@
       "n_nodes": 359,
       "n_edges": 569,
       "kinds_present": {
-        "Compound": 300,
-        "Disease": 59
+        "Disease": 59,
+        "Compound": 300
       },
       "pair_coverage_%": 8.58,
       "sampled_c_d_pairs": 2000,
       "reachable_%": 59.55,
       "mean_path_len": 3.92,
-      "build_seconds": 0.15
+      "build_seconds": 0.17
     },
     {
       "variant": "V2 CGD (nb5)",
@@ -43,7 +47,7 @@
       "sampled_c_d_pairs": 2000,
       "reachable_%": 100.0,
       "mean_path_len": 2.858,
-      "build_seconds": 7.43
+      "build_seconds": 6.82
     },
     {
       "variant": "V4 CtD + metapath shortcuts",
@@ -60,24 +64,24 @@
       "sampled_c_d_pairs": 2000,
       "reachable_%": 100.0,
       "mean_path_len": 2.485,
-      "build_seconds": 2.56
+      "build_seconds": 2.62
     }
   ],
   "train_seconds": {
     "V1": 0.0,
     "V2": 0.0,
-    "V4": 68.05
+    "V4": 0.0,
+    "V3": 118.4
+  },
+  "v3": {
+    "n_nodes": 45114,
+    "n_edges": 2069117,
+    "kinds_kept": "all 11",
+    "cache_key": "V3_pyg_d64_p1_q1_wl20_nw5_w10_seed42",
+    "test_ctd_edges_removed": 151,
+    "final_loss": 1.0594
   },
   "results": [
-    {
-      "variant": "V1",
-      "method": "hadamard+LR",
-      "AUROC": 0.7699,
-      "AUROC_95%": "[0.726, 0.809]",
-      "AUPRC": 0.0873,
-      "AUPRC_95%": "[0.0619, 0.1262]",
-      "pair_coverage": 0.086
-    },
     {
       "variant": "V1",
       "method": "concat+LR",
@@ -97,13 +101,13 @@
       "pair_coverage": 0.086
     },
     {
-      "variant": "V2",
+      "variant": "V1",
       "method": "hadamard+LR",
-      "AUROC": 0.8646,
-      "AUROC_95%": "[0.836, 0.895]",
-      "AUPRC": 0.0507,
-      "AUPRC_95%": "[0.0347, 0.0783]",
-      "pair_coverage": 1.0
+      "AUROC": 0.7699,
+      "AUROC_95%": "[0.726, 0.809]",
+      "AUPRC": 0.0873,
+      "AUPRC_95%": "[0.0619, 0.1262]",
+      "pair_coverage": 0.086
     },
     {
       "variant": "V2",
@@ -124,13 +128,40 @@
       "pair_coverage": 1.0
     },
     {
-      "variant": "V4",
+      "variant": "V2",
       "method": "hadamard+LR",
-      "AUROC": 0.8221,
-      "AUROC_95%": "[0.787, 0.851]",
-      "AUPRC": 0.0249,
-      "AUPRC_95%": "[0.0172, 0.0425]",
-      "pair_coverage": 0.894
+      "AUROC": 0.8646,
+      "AUROC_95%": "[0.836, 0.895]",
+      "AUPRC": 0.0507,
+      "AUPRC_95%": "[0.0347, 0.0783]",
+      "pair_coverage": 1.0
+    },
+    {
+      "variant": "V3 (PyG, full Hetionet)",
+      "method": "concat+LR",
+      "AUROC": 0.9057,
+      "AUROC_95%": "[0.887, 0.925]",
+      "AUPRC": 0.051,
+      "AUPRC_95%": "[0.0378, 0.0762]",
+      "pair_coverage": 1.0
+    },
+    {
+      "variant": "V3 (PyG, full Hetionet)",
+      "method": "cosine",
+      "AUROC": 0.8686,
+      "AUROC_95%": "[0.846, 0.892]",
+      "AUPRC": 0.0227,
+      "AUPRC_95%": "[0.0173, 0.0325]",
+      "pair_coverage": 1.0
+    },
+    {
+      "variant": "V3 (PyG, full Hetionet)",
+      "method": "hadamard+LR",
+      "AUROC": 0.8928,
+      "AUROC_95%": "[0.870, 0.915]",
+      "AUPRC": 0.0627,
+      "AUPRC_95%": "[0.0422, 0.0989]",
+      "pair_coverage": 1.0
     },
     {
       "variant": "V4",
@@ -151,55 +182,13 @@
       "pair_coverage": 0.894
     },
     {
-      "variant": "V3 (PyG, full Hetionet)",
+      "variant": "V4",
       "method": "hadamard+LR",
-      "AUROC": 0.898,
-      "AUROC_95%": "[0.877, 0.918]",
-      "AUPRC": 0.0551,
-      "AUPRC_95%": "[0.0355, 0.0904]",
-      "pair_coverage": 1.0
-    },
-    {
-      "variant": "V3 (PyG, full Hetionet)",
-      "method": "concat+LR",
-      "AUROC": 0.911,
-      "AUROC_95%": "[0.891, 0.930]",
-      "AUPRC": 0.0514,
-      "AUPRC_95%": "[0.0346, 0.0826]",
-      "pair_coverage": 1.0
-    },
-    {
-      "variant": "V3 (PyG, full Hetionet)",
-      "method": "cosine",
-      "AUROC": 0.8697,
-      "AUROC_95%": "[0.848, 0.890]",
-      "AUPRC": 0.0222,
-      "AUPRC_95%": "[0.0170, 0.0297]",
-      "pair_coverage": 1.0
+      "AUROC": 0.8221,
+      "AUROC_95%": "[0.787, 0.851]",
+      "AUPRC": 0.0249,
+      "AUPRC_95%": "[0.0172, 0.0425]",
+      "pair_coverage": 0.894
     }
-  ],
-  "v3_supplement": {
-    "produced_by": "07b_v3_pyg.ipynb",
-    "library": "torch 2.11.0 + torch_geometric (MPS Node2Vec)",
-    "config": {
-      "dimensions": 64,
-      "p": 1,
-      "q": 1,
-      "walk_length": 20,
-      "num_walks": 5,
-      "window": 10,
-      "hub_K": 20,
-      "seed": 42,
-      "device": "mps",
-      "train_seconds": 115.5,
-      "cache_key": "V3_pyg_d64_p1_q1_wl20_nw5_w10_seed42"
-    },
-    "walk_graph": {
-      "kinds_kept": "all 11",
-      "n_nodes": 45114,
-      "n_edges": 2069117,
-      "test_ctd_edges_removed": 151
-    },
-    "final_loss": 1.0595
-  }
+  ]
 }

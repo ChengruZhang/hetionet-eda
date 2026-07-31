@@ -1,13 +1,14 @@
 {
-  "produced_by": "11_external_validation.ipynb",
+  "produced_by": "11_external_validation.ipynb (Part I)",
   "source": "ClinicalTrials.gov API v2",
   "hetionet_cutoff": "2017-01-01",
   "model_validated": "gcn (nb08)",
   "top_k": 100,
   "candidate_definition": "test-set pairs with y=0, ranked by GCN score",
   "controls": {
-    "A": "matched on walk-graph degree \u2014 INSUFFICIENT, leaves trial popularity skewed",
-    "B": "matched on ClinicalTrials.gov marginal counts \u2014 headline control"
+    "A": "matched on walk-graph degree - INSUFFICIENT, leaves trial popularity skewed",
+    "B": "matched on ClinicalTrials.gov marginal counts",
+    "definitive": "nearest-neighbour matched on all four covariates, N=300/arm"
   },
   "match_diagnostics": [
     {
@@ -197,12 +198,6 @@
       "balanced": "yes"
     }
   ],
-  "label_noise_in_negatives": {
-    "pct_with_any_trial": 42.7,
-    "pct_phase2_plus": 35.0,
-    "pct_with_10plus": 14.0,
-    "pct_with_post2017": 33.7
-  },
   "top_hits": [
     {
       "compound_name": "Gemcitabine",
@@ -329,6 +324,6 @@
     "Name matching: DrugBank/DO names vs registry names (verified miss: Methoxsalen x vitiligo = PUVA therapy)",
     "Registration era: ClinicalTrials.gov mandatory from 2007; older established treatments show zero trials",
     "A registered trial indicates hypothesis plausibility, not demonstrated efficacy",
-    "Enrichment is measured on 100 pairs per group; Fisher p near 0.03 is suggestive, not decisive"
+    "Enrichment measured on 300 pairs per arm; see Part II for population-level contamination"
   ]
 }

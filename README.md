@@ -18,9 +18,15 @@ downstream modelling decisions.
 | [`01_overview.ipynb`](eda/01_overview.ipynb) | Dataset validation, node/edge type distributions, class-imbalance analysis |
 | [`02_structure.ipynb`](eda/02_structure.ipynb) | Degree distribution (power-law fit), connectivity, shortest paths, centrality |
 | [`03_compound_disease.ipynb`](eda/03_compound_disease.ipynb) | CtD/CpD sparsity, metapath enumeration, DWPC feature baseline, OWA analysis, negative-sampling design |
-| [`04_link_prediction.ipynb`](eda/04_link_prediction.ipynb) | Graph heuristics (Common Neighbors, Jaccard), spectral node embeddings, logistic regression baseline, AUROC/AUPRC evaluation |
+| [`04_link_prediction.ipynb`](eda/04_link_prediction.ipynb) | Graph heuristics (Common Neighbors, Jaccard), spectral embeddings, logistic regression. **Writes the locked train/test split every later notebook reuses.** |
+| [`05_link_prediction_method2.ipynb`](eda/05_link_prediction_method2.ipynb) | Node2Vec: biased random walks + Word2Vec, three pair operators (Hadamard / Concat / Cosine), bootstrap CIs |
+| [`06_evaluation_deepdive.ipynb`](eda/06_evaluation_deepdive.ipynb) | Precision@K, score distributions, outliers in 64-D vs 2-D, where spectral and Node2Vec disagree, rank-average ensemble |
+| [`07_graph_ablation.ipynb`](eda/07_graph_ablation.ipynb) | Four walk-graph variants — CtD-only, C∪G∪D, full Hetionet, and CtD plus weighted metapath shortcuts |
+| [`08_gnn.ipynb`](eda/08_gnn.ipynb) | GCN and R-GCN link prediction, end-to-end supervised, sharing one training loop so the edge-type ablation is clean |
+| [`10_ensemble_v2.ipynb`](eda/10_ensemble_v2.ipynb) | Five methods combined: rank-average, best pair, weight-simplex search |
+| [`11_external_validation.ipynb`](eda/11_external_validation.ipynb) | Checks top predictions against ClinicalTrials.gov, then audits how contaminated the `y = 0` labels are |
 
-Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one.
+Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one. Numbering skips 09 and 12: those notebooks were merged into 08 and 11 respectively, and renumbering the rest would have broken every cross-reference in the prose.
 
 
 ---
@@ -37,6 +43,14 @@ Run them in order — each notebook depends on outputs described (but not re-com
 | UBC betweenness | 0.34 (next: 0.026) — hub correction mandatory |
 | Common Neighbors baseline (no leakage) | AUROC 0.82 / AUPRC 0.030 (8× random) |
 | Spectral embedding (L_sym, 4-dim) | AUROC 0.68 / AUPRC 0.005 — limited by heterogeneous graph structure |
+| Node2Vec + Concat + LR | AUROC 0.921 / AUPRC 0.031 |
+| **GCN, end-to-end supervised** | **AUROC 0.922 / AUPRC 0.179 / P@10 = 0.70** — the jump is in the top of the ranking, not the average |
+| R-GCN (per-relation weights) | No gain over GCN, 35% slower, and initialisation-sensitive where GCN is not |
+| Widening the walk graph past Gene | +0.01 AUROC for 27k extra nodes — Gene is where the signal stops |
+| Gene as bridge, not as node (V4) | 99.8% of the C∪G∪D result using 8% of the nodes |
+| Five-method ensemble | AUROC 0.958; spectral gets weight 0.0 once the GNNs are present |
+| External validation (matched, N=300) | Phase 2+ enrichment 1.33× [1.10, 1.63]; post-2017 enrichment not significant |
+| **Contamination in `y = 0`** | **~12% overall, 28% in the top-scoring decile** — AUPRC is biased, not merely noisy |
 
 ---
 
@@ -94,15 +108,43 @@ pixi run notebook
 ```
 .
 ├── eda/
-│   ├── 01_overview.ipynb          # EDA notebooks (run in order)
+│   ├── 01_overview.ipynb              # run in order
 │   ├── 02_structure.ipynb
 │   ├── 03_compound_disease.ipynb
-│   ├── 04_link_prediction.ipynb
-│   ├── utils.py                   # shared data-loading and graph utilities
-│   ├── pixi.toml                  # environment spec
+│   ├── 04_link_prediction.ipynb       # writes the locked split
+│   ├── 05_link_prediction_method2.ipynb
+│   ├── 06_evaluation_deepdive.ipynb
+│   ├── 07_graph_ablation.ipynb
+│   ├── 08_gnn.ipynb                   # GCN + R-GCN
+│   ├── 10_ensemble_v2.ipynb
+│   ├── 11_external_validation.ipynb   # ClinicalTrials.gov + label audit
+│   ├── artifacts/
+│   │   ├── splits/                    # locked pair universe and train/test indices
+│   │   ├── predictions/               # per-method scores and *_meta.json receipts
+│   │   └── external/                  # registry cache and validation outputs
+│   ├── utils.py                       # shared data-loading and graph utilities
+│   ├── pixi.toml                      # environment spec
 │   └── pixi.lock
 └── README.md
 ```
+
+`artifacts/*_meta.json` files are checked in as reproducibility receipts; the large
+score files they describe are gitignored and regenerate by re-running the notebook
+that produced them. `artifacts/external/ctgov_pair_cache.pkl` is checked in as well —
+it pins the ClinicalTrials.gov snapshot nb11's numbers were computed against, and
+lets that notebook re-run without touching the registry.
+
+### GPU note
+
+nb08 and nb11 use PyTorch Geometric. `pixi install` covers `torch` and
+`torch-geometric`, but `pyg-lib` (needed by `torch_geometric.nn.Node2Vec` in nb07)
+is not on PyPI and has to come from the PyG wheel index:
+
+```bash
+pixi run uv pip install pyg-lib -f https://data.pyg.org/whl/torch-2.11.0+cpu.html
+```
+
+Training runs on MPS (Apple Silicon), CUDA, or CPU, selected automatically.
 
 ---
 

@@ -1,0 +1,40 @@
+{
+  "n_per_arm": 300,
+  "matching": "4-axis nearest neighbour on log(deg_c, deg_d, drug_marginal, cond_marginal)",
+  "all_axes_balanced": true,
+  "results": [
+    {
+      "metric": "\u22651 trial",
+      "pred_pct": 50.3,
+      "ctrl_pct": 42.7,
+      "enrichment": 1.18,
+      "ci_lo": 0.99,
+      "ci_hi": 1.41,
+      "fisher_p": 0.03582940268212536
+    },
+    {
+      "metric": "post-2017 trial",
+      "pred_pct": 36.7,
+      "ctrl_pct": 33.7,
+      "enrichment": 1.09,
+      "ci_lo": 0.87,
+      "ci_hi": 1.36,
+      "fisher_p": 0.24701348169711823
+    },
+    {
+      "metric": "phase 2+",
+      "pred_pct": 46.7,
+      "ctrl_pct": 35.0,
+      "enrichment": 1.33,
+      "ci_lo": 1.1,
+      "ci_hi": 1.63,
+      "fisher_p": 0.002348710777988862
+    }
+  ],
+  "label_noise_in_matched_negatives": {
+    "any trial": 42.7,
+    "phase 2+": 35.0,
+    ">=10 trials": 14.0,
+    "post-2017": 33.7
+  }
+}

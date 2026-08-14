@@ -22,11 +22,11 @@ downstream modelling decisions.
 | [`05_link_prediction_method2.ipynb`](eda/05_link_prediction_method2.ipynb) | Node2Vec: biased random walks + Word2Vec, three pair operators (Hadamard / Concat / Cosine), bootstrap CIs |
 | [`06_evaluation_deepdive.ipynb`](eda/06_evaluation_deepdive.ipynb) | Precision@K, score distributions, outliers in 64-D vs 2-D, where spectral and Node2Vec disagree, rank-average ensemble |
 | [`07_graph_ablation.ipynb`](eda/07_graph_ablation.ipynb) | Four walk-graph variants — CtD-only, C∪G∪D, full Hetionet, and CtD plus weighted metapath shortcuts |
-| [`08_gnn.ipynb`](eda/08_gnn.ipynb) | GCN and R-GCN link prediction, end-to-end supervised, sharing one training loop so the edge-type ablation is clean |
+| [`08_gnn.ipynb`](eda/08_gnn.ipynb) | GCN and R-GCN link prediction, end-to-end supervised, sharing one training loop so the edge-type ablation is clean. Five-seed stability section shows single-seed AUPRC comparisons on this task are noise below ± 0.03 |
 | [`09_sideeffect_rgcn.ipynb`](eda/09_sideeffect_rgcn.ipynb) | Does edge-type awareness stop the model confusing "treats" with "causes"? Adds Side Effect nodes and retrains both architectures |
-| [`10_ensemble_v2.ipynb`](eda/10_ensemble_v2.ipynb) | Five methods combined: rank-average, best pair, weight-simplex search |
+| [`10_ensemble_v2.ipynb`](eda/10_ensemble_v2.ipynb) | Five methods combined: rank-average, best pair, weight-simplex search. **Pre-audit numbers** — nb11/nb12 later found the labels it tunes against are contaminated where the methods disagree most; see the status note inside |
 | [`11_external_validation.ipynb`](eda/11_external_validation.ipynb) | ClinicalTrials.gov and Europe PMC validation, label-contamination audit, and the direction defect that motivates 09 and 12 |
-| [`12_negative_sampling.ipynb`](eda/12_negative_sampling.ipynb) | Can better negatives replace the architectural fix? Hard negatives from Hetionet's own side-effect edges, plus registry-screened ones |
+| [`12_negative_sampling.ipynb`](eda/12_negative_sampling.ipynb) | Can better negatives replace the architectural fix? Hard negatives from Hetionet's own side-effect edges, plus registry-screened ones. Verdict confirmed across five seeds; **hard-25 is now the project's default sampler** |
 
 Run them in order — each notebook depends on outputs described (but not re-computed) by the previous one.
 
@@ -48,15 +48,17 @@ Reading order note: 11 comes before 09 and 12 logically. It is the notebook that
 | Common Neighbors baseline (no leakage) | AUROC 0.82 / AUPRC 0.030 (8× random) |
 | Spectral embedding (L_sym, 4-dim) | AUROC 0.68 / AUPRC 0.005 — limited by heterogeneous graph structure |
 | Node2Vec + Concat + LR | AUROC 0.921 / AUPRC 0.031 |
-| **GCN, end-to-end supervised** | **AUROC 0.922 / AUPRC 0.179 / P@10 = 0.70** — the jump is in the top of the ranking, not the average |
-| R-GCN (per-relation weights) | No gain over GCN, 35% slower, and initialisation-sensitive where GCN is not |
+| **GCN, end-to-end supervised** | **AUROC 0.922 / AUPRC 0.179 / P@10 = 0.70 on the reference seed** — the jump is in the top of the ranking, not the average. Across 5 seeds: AUROC 0.915 ± 0.010, AUPRC 0.143 ± 0.031 — the 0.179 headline is the best draw, not the typical one |
+| R-GCN (per-relation weights) | Below GCN on AUROC (4/5 seeds), statistically tied on AUPRC, ~40% slower. The earlier "GCN stable, R-GCN not" claim inverted under 5 seeds: GCN's AUPRC spread is twice R-GCN's |
+| **Single-seed AUPRC gaps < ± 0.03 are seed noise** | Established by nb08 §8 and confirmed by nb12 §6 — method comparisons on this task need multi-seed or paired designs |
 | Widening the walk graph past Gene | +0.01 AUROC for 27k extra nodes — Gene is where the signal stops |
 | Gene as bridge, not as node (V4) | 99.8% of the C∪G∪D result using 8% of the nodes |
-| Five-method ensemble | AUROC 0.958; spectral gets weight 0.0 once the GNNs are present |
+| Five-method ensemble | AUROC 0.958; spectral gets weight 0.0 once the GNNs are present. *Pre-audit labels — treat as an upper bound until re-run under screened negatives* |
 | External validation (matched, N=300) | Phase 2+ enrichment 1.33× [1.10, 1.63]; post-2017 enrichment not significant |
 | Literature validation (Europe PMC) | 69.7% studied vs 60.7% control; but "new since 2017" runs *below* control (0.63×) |
 | **Contamination in `y = 0`** | **~12% overall, 28% in the top-scoring decile** — AUPRC is biased, not merely noisy |
-| **The model confuses "treats" with "causes"** | 6.0% of top predictions are drugs known to *cause* the condition; edge-type awareness cuts it to 2.3% |
+| **The model confuses "treats" with "causes"** | 8.9% ± 1.8 of top-300 novel predictions are drugs known to *cause* the condition (5-seed mean; the old 6.0% was the luckiest seed). Edge-type awareness cuts it to 2.3%; a 25% hard-negative mix cuts it to 0.9% at no ranking cost |
+| **Adopted: hard-25 negative sampler** | Hard negatives from Hetionet's own `causes` edges, 25% of each batch. causes@300 drops 10× on 5/5 seeds, AUPRC cost −0.004 ± 0.025 (noise). Beats the architectural fix at half the compute — now the project default |
 
 ---
 

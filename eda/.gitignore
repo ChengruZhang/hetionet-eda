@@ -13,21 +13,23 @@ __pycache__/
 # macOS
 .DS_Store
 
-# Project-specific: raw data (download separately, see README)
-../hetionet-main/
-../hetionet-main.zip
-
-# Claude Code internals
-../.claude/
-
 # Local tutorials (not for version control)
 tutorials/
+
+# HTML exports of the notebooks (regenerate with jupyter nbconvert --to html)
+*.html
 
 # Generated artifacts (split + predictions; regenerate by re-running nb4)
 artifacts/predictions/
 artifacts/splits/pairs.parquet
 artifacts/splits/lr_split.npz
 # Keep split_meta.json + per-method *_meta.json checked in as reproducibility receipts
+
+# nb11 validation outputs (regenerate from the checked-in registry/literature caches)
+# — the tracked receipts (marginal_*.parquet, train_negatives_screened.parquet, *_meta.json,
+#   *.pkl caches, *_validation.json) stay tracked; ignore rules never untrack files
+artifacts/external/*.parquet
+artifacts/external/name_maps.json
 
 # Node2vec walk + embedding cache (regenerate from nb5)
 cache/

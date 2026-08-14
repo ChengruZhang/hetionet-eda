@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Raw dataset (download separately, see README)
+hetionet-main/
+hetionet-main.zip
+
+# Claude Code internals
+.claude/
+
+# Local teaching material (kept out of version control by choice)
+courses/

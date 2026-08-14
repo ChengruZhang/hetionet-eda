@@ -35,75 +35,193 @@
   "results": [
     {
       "arm": "random",
-      "AUROC": 0.9224,
+      "AUROC": 0.9216,
       "AUPRC": 0.1793,
       "causes@50": 0.1,
       "causes@100": 0.06,
       "causes@300": 0.06,
-      "seconds": 254.0
+      "seconds": 304.0
     },
     {
       "arm": "random-pool",
-      "AUROC": 0.8727,
-      "AUPRC": 0.0863,
+      "AUROC": 0.873,
+      "AUPRC": 0.0909,
       "causes@50": 0.04,
-      "causes@100": 0.05,
-      "causes@300": 0.0767,
-      "seconds": 284.0
+      "causes@100": 0.08,
+      "causes@300": 0.08,
+      "seconds": 345.0
     },
     {
       "arm": "hard-25",
-      "AUROC": 0.9234,
+      "AUROC": 0.923,
       "AUPRC": 0.1535,
       "causes@50": 0.0,
       "causes@100": 0.0,
       "causes@300": 0.0033,
-      "seconds": 267.0
+      "seconds": 259.0
     },
     {
       "arm": "hard-50",
-      "AUROC": 0.8784,
-      "AUPRC": 0.0972,
+      "AUROC": 0.8789,
+      "AUPRC": 0.0985,
       "causes@50": 0.0,
       "causes@100": 0.0,
       "causes@300": 0.01,
-      "seconds": 280.0
+      "seconds": 228.0
     },
     {
       "arm": "hard-100",
-      "AUROC": 0.7171,
-      "AUPRC": 0.0114,
+      "AUROC": 0.7407,
+      "AUPRC": 0.0127,
       "causes@50": 0.0,
       "causes@100": 0.0,
       "causes@300": 0.0,
-      "seconds": 284.0
+      "seconds": 234.0
     },
     {
       "arm": "screened-25",
-      "AUROC": 0.9187,
-      "AUPRC": 0.1274,
+      "AUROC": 0.9186,
+      "AUPRC": 0.1265,
       "causes@50": 0.1,
       "causes@100": 0.06,
       "causes@300": 0.0533,
-      "seconds": 269.0
+      "seconds": 242.0
     },
     {
       "arm": "screened-100",
-      "AUROC": 0.8793,
-      "AUPRC": 0.0942,
+      "AUROC": 0.8796,
+      "AUPRC": 0.0954,
       "causes@50": 0.18,
       "causes@100": 0.12,
       "causes@300": 0.0633,
-      "seconds": 269.0
+      "seconds": 244.0
     },
     {
       "arm": "screened+hard",
-      "AUROC": 0.9229,
-      "AUPRC": 0.1107,
+      "AUROC": 0.923,
+      "AUPRC": 0.1102,
       "causes@50": 0.04,
       "causes@100": 0.03,
       "causes@300": 0.0467,
-      "seconds": 277.0
+      "seconds": 313.0
     }
-  ]
+  ],
+  "multiseed": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "per_run": [
+      {
+        "arm": "random",
+        "seed": 42,
+        "AUROC": 0.9216,
+        "AUPRC": 0.1793,
+        "causes@300": 0.06
+      },
+      {
+        "arm": "random",
+        "seed": 43,
+        "AUROC": 0.9139,
+        "AUPRC": 0.1378,
+        "causes@300": 0.0867
+      },
+      {
+        "arm": "random",
+        "seed": 44,
+        "AUROC": 0.9017,
+        "AUPRC": 0.1082,
+        "causes@300": 0.0933
+      },
+      {
+        "arm": "random",
+        "seed": 45,
+        "AUROC": 0.9287,
+        "AUPRC": 0.1677,
+        "causes@300": 0.0933
+      },
+      {
+        "arm": "random",
+        "seed": 46,
+        "AUROC": 0.9094,
+        "AUPRC": 0.1238,
+        "causes@300": 0.11
+      },
+      {
+        "arm": "hard-25",
+        "seed": 42,
+        "AUROC": 0.923,
+        "AUPRC": 0.1535,
+        "causes@300": 0.0033
+      },
+      {
+        "arm": "hard-25",
+        "seed": 43,
+        "AUROC": 0.9211,
+        "AUPRC": 0.1267,
+        "causes@300": 0.0067
+      },
+      {
+        "arm": "hard-25",
+        "seed": 44,
+        "AUROC": 0.9269,
+        "AUPRC": 0.1338,
+        "causes@300": 0.0067
+      },
+      {
+        "arm": "hard-25",
+        "seed": 45,
+        "AUROC": 0.9239,
+        "AUPRC": 0.1848,
+        "causes@300": 0.0167
+      },
+      {
+        "arm": "hard-25",
+        "seed": 46,
+        "AUROC": 0.8934,
+        "AUPRC": 0.0962,
+        "causes@300": 0.01
+      }
+    ],
+    "paired_diff_hard25_minus_random": [
+      {
+        "seed": 42,
+        "AUROC": 0.0014,
+        "AUPRC": -0.0257,
+        "causes@300": -0.0567
+      },
+      {
+        "seed": 43,
+        "AUROC": 0.0073,
+        "AUPRC": -0.0111,
+        "causes@300": -0.08
+      },
+      {
+        "seed": 44,
+        "AUROC": 0.0253,
+        "AUPRC": 0.0256,
+        "causes@300": -0.0867
+      },
+      {
+        "seed": 45,
+        "AUROC": -0.0048,
+        "AUPRC": 0.017,
+        "causes@300": -0.0767
+      },
+      {
+        "seed": 46,
+        "AUROC": -0.016,
+        "AUPRC": -0.0276,
+        "causes@300": -0.1
+      }
+    ]
+  },
+  "adopted_sampler": {
+    "arm": "hard-25",
+    "pool": "Hetionet Compound-causes-SideEffect edges name-matched to Disease, train side only",
+    "rationale": "cuts causes@300 by an order of magnitude at matched ranking quality; confirmed across 5 seeds in section 6; screening negatives for trial contamination does not help training (section 8)"
+  }
 }

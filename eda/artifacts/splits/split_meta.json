@@ -1,0 +1,15 @@
+{
+  "split_seed": 42,
+  "test_size": 0.2,
+  "stratified_by_y": true,
+  "splitter": "sklearn.model_selection.train_test_split",
+  "pair_universe": "LCC compound x LCC disease (spectral-embedding coverage)",
+  "n_pairs": 206312,
+  "n_positives": 755,
+  "n_train": 165049,
+  "n_test": 41263,
+  "baseline_lr_spectral_auroc": 0.6811373937001683,
+  "baseline_lr_spectral_auprc": 0.009739485222707248,
+  "feature_set_lr": "concat(compound_spectral_emb, disease_spectral_emb)",
+  "notes": "Heuristic CN/Jaccard scores in heuristics_lcc.npz use a different pair iteration order; align via (compound, disease) keys if comparing pair-by-pair."
+}
